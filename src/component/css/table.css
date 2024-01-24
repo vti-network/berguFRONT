@@ -1,0 +1,35 @@
+/* table */
+.tconntainer {
+  max-width: 90%;
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+#transactionTable {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 10px;
+    margin-top: 20px;
+  }
+  
+  #transactionTable th,
+  #transactionTable td {
+    border: 1px solid #ddd;
+    /* padding: 8px; */
+    text-align: left;
+  }
+  
+  #transactionTable th {
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 11px;
+  }
+  
+  #transactionTable a {
+    text-decoration: none;
+    color: #0066cc;
+  }
+  
+  #transactionTable a:hover {
+    text-decoration: underline;
+  }

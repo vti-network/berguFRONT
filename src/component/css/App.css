@@ -1,0 +1,110 @@
+/* App.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #f8d107, #f49e00);
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.btc-logo {
+  width: 50px; /* Sesuaikan ukuran logo sesuai keinginan Anda */
+  height: auto;
+  margin-right: 10px;
+}
+
+nav {
+  display: flex;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+li {
+  margin-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin-left: 5px;
+  transition: color 0.3s ease; /* Efek transisi ketika mengganti warna */
+}
+
+a:hover {
+  color: #13110b; /* Warna saat hover */
+}
+
+/* Tambahan gaya untuk navigasi */
+nav {
+  margin-right: 20px; /* Jarak antara logo dan navigasi */
+  margin-top: 10px;
+}
+
+.section {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.section p {
+  font-size: 10px;
+}
+
+.content {
+  text-align: center;
+  margin-top: 100px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  nav {
+    margin-right: 0;
+  }
+
+  ul {
+    flex-direction: column;
+  }
+
+  li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
