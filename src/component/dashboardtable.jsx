@@ -14,7 +14,7 @@ const DashboardTable = () => {
 
     const fetchDataAndPopulateTable = async () => {
         try {
-            const response = await fetch('http://192.168.88.232:8888/api/d');
+            const response = await fetch('http://localhost:8888/api/d');
             const data = await response.json();
             setData(data);
         } catch (error) {

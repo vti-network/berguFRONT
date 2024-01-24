@@ -15,7 +15,7 @@ async function fetchData(url) {
 
 async function sendTransaction(alamat, secretKey, currency, jumlah, alamatTujuan) {
   try {
-    const response = await fetch(`http://192.168.88.232:8888/api/s/${alamat}/${secretKey}/${currency}/${jumlah}/${alamatTujuan}`);
+    const response = await fetch(`http://localhost:8888/api/s/${alamat}/${secretKey}/${currency}/${jumlah}/${alamatTujuan}`);
     const responseData = await response.json();
 
     if (response.ok && responseData.success) {
@@ -184,7 +184,7 @@ const Baluser = ({ alamat }) => {
   useEffect(() => {
     const fetchDataAndPopulateTable = async () => {
       try {
-        const data = await fetchData(`http://192.168.88.232:8888/api/d/${alamat}`);
+        const data = await fetchData(`http://localhost:8888/api/d/${alamat}`);
         setData(data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -228,7 +228,7 @@ const UserTable = ({ alamat }) => {
 
   const fetchDataAndPopulateTable = async () => {
     try {
-      const data = await fetchData(`http://192.168.88.232:8888/api/d/${alamat}`);
+      const data = await fetchData(`http://localhost:8888/api/d/${alamat}`);
       setData(data);
     } catch (error) {
       console.error('Error fetching data:', error);
