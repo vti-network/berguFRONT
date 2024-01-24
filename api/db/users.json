@@ -8,7 +8,6 @@
       {
         "IDR": "100000000",
         "BERGU": "100000000",
-        "BTKN": "NaN"
       }
     ],
     "profile": [
@@ -20,14 +19,7 @@
     "history": {
       "created": "2024-01-24 11:51:13",
       "transactions": [
-        {
-          "date_time": "2024-01-24 12:15:01",
-          "opt": "kirim",
-          "currency": "BTKN",
-          "value": "1000",
-          "pengirim": "x0627da0a7f02ef99bb4338f16c5cbd85af5532dcab4effc34e76aeb078271126e97",
-          "penerima": "x0628c3adad4f9ad2df5801d4492d6eed3ddda27521e4267ad046fd84fd0de6a7c6b"
-        }
+
       ]
     },
     "txhash": [],
@@ -54,14 +46,7 @@
     "history": {
       "created": "2024-01-24 12:10:59",
       "transactions": [
-        {
-          "date_time": "2024-01-24 12:15:01",
-          "opt": "terima",
-          "currency": "BTKN",
-          "value": "1000",
-          "penerima": "x0628c3adad4f9ad2df5801d4492d6eed3ddda27521e4267ad046fd84fd0de6a7c6b",
-          "pengirim": "x0627da0a7f02ef99bb4338f16c5cbd85af5532dcab4effc34e76aeb078271126e97"
-        }
+
       ]
     },
     "txhash": [
