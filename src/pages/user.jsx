@@ -2,6 +2,34 @@ import React, { useState, useEffect } from 'react';
 import '../component/css/User.css';
 import MyHeader from '../component/header';
 
+async function fetchData(url) {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw error;
+  }
+}
+
+async function sendTransaction(alamat, secretKey, currency, jumlah, alamatTujuan) {
+  try {
+    const response = await fetch(`http://localhost:8888/api/s/${alamat}/${secretKey}/${currency}/${jumlah}/${alamatTujuan}`);
+    const responseData = await response.json();
+
+    if (response.ok && responseData.success) {
+      return responseData.message;
+    } else {
+      console.error('Format respons tidak sesuai:', responseData);
+      return 'kirim gagal';
+    }
+  } catch (error) {
+    console.error('Error saat kirim:', error);
+    return 'kirim gagal';
+  }
+}
+
 function Duser() {
   const [alamat, setAlamat] = useState(null);
   const [secretKey, setSecretKey] = useState(null);
@@ -54,23 +82,8 @@ function Opt({ alamat, secretKey }) {
 
   //kirim
   const kirim = async () => {
-    try {
-      const response = await fetch(
-        `http://localhost:8888/api/s/${alamat}/${secretKey}/${currency}/${jumlah}/${alamatTujuan}`
-      );
-
-      const responseData = await response.json();
-
-      if (response.ok && responseData.success) {
-        setPesan(responseData.message);
-      } else {
-        console.error('Format respons tidak sesuai:', responseData);
-        setPesan('kirim gagal');
-      }
-    } catch (error) {
-      console.error('Error saat kirim:', error);
-      setPesan('kirim gagal');
-    }
+    const message = await sendTransaction(alamat, secretKey, currency, jumlah, alamatTujuan);
+    setPesan(message);
   };
 
   return (
@@ -163,19 +176,21 @@ const truncateString = (inputString, maxLength) => {
   }
 };
 
+// ...
+
 const Baluser = ({ alamat }) => {
   const [data, setData] = useState([]);
 
-  const fetchDataAndPopulateTable = () => {
-    fetch(`http://localhost:8888/api/d/${alamat}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-      })
-      .catch((error) => console.error('Error fetching data:', error));
-  };
-
   useEffect(() => {
+    const fetchDataAndPopulateTable = async () => {
+      try {
+        const data = await fetchData(`http://localhost:8888/api/d/${alamat}`);
+        setData(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
     if (typeof document !== 'undefined') {
       fetchDataAndPopulateTable();
       // Uncomment baris berikut jika ingin me-reload data secara berkala
@@ -183,7 +198,7 @@ const Baluser = ({ alamat }) => {
       const intervalId = setInterval(fetchDataAndPopulateTable, reloadInterval);
       return () => clearInterval(intervalId);
     }
-  }, [fetchDataAndPopulateTable, alamat]); // Dependency array kosong untuk memastikan efek ini hanya dijalankan sekali pada saat pemasangan komponen
+  }, [alamat]); // alamat is the only dependency now
 
   return (
     <div>
@@ -205,17 +220,19 @@ const Baluser = ({ alamat }) => {
   );
 };
 
+// ...
+
 const UserTable = ({ alamat }) => {
   const [data, setData] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const fetchDataAndPopulateTable = () => {
-    fetch(`http://localhost:8888/api/d/${alamat}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-      })
-      .catch((error) => console.error('Error fetching data:', error));
+  const fetchDataAndPopulateTable = async () => {
+    try {
+      const data = await fetchData(`http://localhost:8888/api/d/${alamat}`);
+      setData(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
 
   useEffect(() => {
@@ -226,7 +243,7 @@ const UserTable = ({ alamat }) => {
       const intervalId = setInterval(fetchDataAndPopulateTable, reloadInterval);
       return () => clearInterval(intervalId);
     }
-  }, [fetchDataAndPopulateTable, alamat]); // Dependency array kosong untuk memastikan efek ini hanya dijalankan sekali pada saat pemasangan komponen
+  }, [alamat]); // Dependency array kosong untuk memastikan efek ini hanya dijalankan sekali pada saat pemasangan komponen
 
   const filteredData = data.filter((transactionGroup) =>
     transactionGroup.transactions.some(

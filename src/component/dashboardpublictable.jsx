@@ -12,24 +12,25 @@ const PublicTable = ({ hashaddress }) => {
     const [data, setData] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
 
-    const fetchDataAndPopulateTable = () => {
-        fetch(`http://localhost:8888/api/d/${hashaddress}`)
-            .then(response => response.json())
-            .then(data => {
-                setData(data);
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    };
-
     useEffect(() => {
+        const fetchDataAndPopulateTable = async () => {
+            try {
+                const response = await fetch(`http://localhost:8888/api/d/${hashaddress}`);
+                const data = await response.json();
+                setData(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+    
         if (typeof document !== 'undefined') {
             fetchDataAndPopulateTable();
-            // Uncomment baris berikut jika ingin me-reload data secara berkala
             const reloadInterval = 60000; // 60 detik
             const intervalId = setInterval(fetchDataAndPopulateTable, reloadInterval);
             return () => clearInterval(intervalId);
         }
-    }, [fetchDataAndPopulateTable, hashaddress]); // Dependency array kosong untuk memastikan efek ini hanya dijalankan sekali pada saat pemasangan komponen
+    }, [hashaddress]);
+    
 
     const filteredData = data.filter(transactionGroup =>
         transactionGroup.transactions.some(transaction =>
@@ -40,7 +41,7 @@ const PublicTable = ({ hashaddress }) => {
 
     return (
         <div>
-            <h1>{ hashaddress }</h1>
+            <h1>{hashaddress}</h1>
             <strong>Balance:</strong>
             {data.map((transactionGroup, groupIndex) => (
                 <span key={groupIndex}>

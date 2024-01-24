@@ -12,13 +12,14 @@ const DashboardTable = () => {
     const [data, setData] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
 
-    const fetchDataAndPopulateTable = () => {
-        fetch('http://localhost:8888/api/d')
-            .then(response => response.json())
-            .then(data => {
-                setData(data);
-            })
-            .catch(error => console.error('Error fetching data:', error));
+    const fetchDataAndPopulateTable = async () => {
+        try {
+            const response = await fetch('http://localhost:8888/api/d');
+            const data = await response.json();
+            setData(data);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
     };
 
     useEffect(() => {
@@ -35,10 +36,8 @@ const DashboardTable = () => {
         transactionGroup.transactions.some(transaction =>
             transaction.pengirim.toLowerCase().includes(searchQuery.toLowerCase()) ||
             transaction.penerima.toLowerCase().includes(searchQuery.toLowerCase())
-        
         )
     );
-
 
     return (
         <div>
