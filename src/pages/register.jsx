@@ -11,7 +11,7 @@ function Register() {
 
   const NewReg = async () => {
     try {
-      const response = await fetch('http://localhost:8888/api/r', {
+      const response = await fetch('http://192.168.88.232:8888/api/r', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

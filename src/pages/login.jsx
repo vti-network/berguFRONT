@@ -17,7 +17,7 @@ function Login({ setToken }) {
   //
   const getotp = async () => {
     try {
-      const response = await fetch('http://localhost:8888/api/login', {
+      const response = await fetch('http://192.168.88.232:8888/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ function Login({ setToken }) {
 
   const loginwithotp = async () => {
     try {
-      const response = await fetch(`http://localhost:8888/api/login/${username}/${pin}/${otp}`);
+      const response = await fetch(`http://192.168.88.232:8888/api/login/${username}/${pin}/${otp}`);
 
       const responseData = await response.json();
 
