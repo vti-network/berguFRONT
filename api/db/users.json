@@ -1,0 +1,73 @@
+[
+  {
+    "email": "lobaduit1991@gmail.com",
+    "pin": "070717",
+    "alamat": "x0627da0a7f02ef99bb4338f16c5cbd85af5532dcab4effc34e76aeb078271126e97",
+    "secretKey": "50b056e811c657da7b768f6402b316fa8d56e335a106e61a17b37146b83223b2",
+    "balance": [
+      {
+        "IDR": "100000000",
+        "BERGU": "100000000",
+        "BTKN": "NaN"
+      }
+    ],
+    "profile": [
+      {
+        "name": "",
+        "handphone": ""
+      }
+    ],
+    "history": {
+      "created": "2024-01-24 11:51:13",
+      "transactions": [
+        {
+          "date_time": "2024-01-24 12:15:01",
+          "opt": "kirim",
+          "currency": "BTKN",
+          "value": "1000",
+          "pengirim": "x0627da0a7f02ef99bb4338f16c5cbd85af5532dcab4effc34e76aeb078271126e97",
+          "penerima": "x0628c3adad4f9ad2df5801d4492d6eed3ddda27521e4267ad046fd84fd0de6a7c6b"
+        }
+      ]
+    },
+    "txhash": [],
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxvYmFkdWl0MTk5MUBnbWFpbC5jb20iLCJsb2dpblRpbWUiOiIyMDI0LTAxLTI0IDEyOjEzOjU1IiwiaWF0IjoxNzA2MDczMjM1LCJleHAiOjE3MDYxNTk2MzV9.sGVlMAt6cqjNpULu_toBxYmnJ1faBvDbC1G3ADfmzAI",
+    "otp": "834402"
+  },
+  {
+    "email": "azpwkk@gmail.com",
+    "pin": "070717",
+    "alamat": "x0628c3adad4f9ad2df5801d4492d6eed3ddda27521e4267ad046fd84fd0de6a7c6b",
+    "secretKey": "89c4170ddeebd1057211995a171cae08dcd1d164535620ca60e1dce481ec95d3",
+    "balance": [
+      {
+        "IDR": "0",
+        "BERGU": "1000"
+      }
+    ],
+    "profile": [
+      {
+        "name": "",
+        "handphone": ""
+      }
+    ],
+    "history": {
+      "created": "2024-01-24 12:10:59",
+      "transactions": [
+        {
+          "date_time": "2024-01-24 12:15:01",
+          "opt": "terima",
+          "currency": "BTKN",
+          "value": "1000",
+          "penerima": "x0628c3adad4f9ad2df5801d4492d6eed3ddda27521e4267ad046fd84fd0de6a7c6b",
+          "pengirim": "x0627da0a7f02ef99bb4338f16c5cbd85af5532dcab4effc34e76aeb078271126e97"
+        }
+      ]
+    },
+    "txhash": [
+      "cf18e6a48ab197e3d950bfc0c00cd394cdecdf16a7b58b9212cda208d6d13e83"
+    ],
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF6cHdra0BnbWFpbC5jb20iLCJsb2dpblRpbWUiOiIyMDI0LTAxLTI0IDEyOjE4OjM1IiwiaWF0IjoxNzA2MDczNTE1LCJleHAiOjE3MDYxNTk5MTV9.TQGzBgUO8PspFBXfvn2cXKsqrcUEBSlmOWJSLfd2Fts",
+    "otp": "585434"
+  }
+]
